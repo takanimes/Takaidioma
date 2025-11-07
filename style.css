@@ -1,0 +1,131 @@
+/* SENSEI: Aqui está a nossa nova paleta "Nōkō" (Densa/Dark) para conforto visual. */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212; /* Fundo preto/cinza-chumbo, mais confortável */
+    color: #e0e0e0; /* Texto principal um pouco mais suave */
+}
+.nav-link, .nav-link-mobile {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    padding: 8px 0;
+    color: #b0b0b0; /* Links da navegação mais sutis */
+}
+.nav-link.active, .nav-link-mobile.active {
+    color: #f9258a; /* Cor da marca Takanimes, agora com mais destaque */
+    border-bottom-color: #f9258a;
+}
+.nav-link:hover, .nav-link-mobile:hover {
+    color: #f9258a;
+}
+/* SENSEI: Cards com mais contraste e menos distração azul */
+.card {
+    background-color: #1e1e1e; /* Fundo do card ligeiramente mais claro */
+    border: 1px solid #2a2a2a; /* Borda sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(249, 37, 138, 0.2);
+}
+.card-number {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background-color: rgba(249, 37, 138, 0.2);
+    color: #f9258a;
+    border-radius: 9999px;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+.btn-primary {
+    background-color: #f9258a;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+.btn-primary:hover {
+    background-color: #e02178;
+}
+/* SENSEI: Removi o .btn-premium, pois não estamos mais vendendo o VIP aqui. */
+.btn-gemini {
+    background: linear-gradient(90deg, #f9258a, #ff7e5f);
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-gemini:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(249, 37, 138, 0.4);
+}
+/* SENSEI: Atualizando os inputs e opções para a nova paleta dark */
+.quiz-option, .flashcard-input {
+    background-color: #181818; /* Mais escuro que o card */
+    border: 1px solid #2a2a2a;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    color: #e0e0e0;
+}
+.quiz-option:hover, .flashcard-input:focus {
+    border-color: #f9258a;
+    color: #f9258a;
+    outline: none;
+}
+.quiz-option.correct, .flashcard-input.correct {
+    background-color: #1dd3b0;
+    border-color: #1dd3b0;
+    color: #121212 !important;
+}
+.quiz-option.incorrect, .flashcard-input.incorrect {
+    background-color: #d90429;
+    border-color: #d90429;
+    color: #ffffff !important;
+}
+.quiz-option.disabled {
+    pointer-events: none;
+}
+/* SENSEI: Estilos do Chat IA atualizados */
+.chat-window { height: 60vh; overflow-y: auto; background-color: #181818; }
+.chat-bubble { max-width: 80%; padding: 10px 15px; border-radius: 20px; word-wrap: break-word; }
+.chat-bubble.user { background-color: #f9258a; color: white; border-bottom-right-radius: 5px; }
+.chat-bubble.ai { background-color: #2a2a2a; border: 1px solid #3a3a3a; color: #e0e0e0; border-bottom-left-radius: 5px; }
+.typing-indicator span { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #f9258a; animation: bounce 1.3s infinite; }
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-10px); } }
+/* Animação Flashcard */
+.flashcard-flip { transition: transform 0.6s; transform-style: preserve-3d; }
+.flashcard-flip.is-flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; position: absolute; width: 100%; height: 100%; }
+.flashcard-back { transform: rotateY(180deg); }
+/* Tabela Interativa */
+.kana-table td {
+    transition: background-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+}
+.kana-table td:hover {
+    background-color: #f9258a;
+    color: white;
+}
+/* SENSEI: Overrides para elementos do Tailwind que usavam cores antigas */
+[class*="bg-gray-800/50"] { background-color: rgba(30, 30, 30, 0.7) !important; }
+.text-gray-300 { color: #b0b0b0; }
+.text-gray-400 { color: #888888; }
+.text-white { color: #ffffff; }
+.border-gray-700 { border-color: #2a2a2a; }
+.border-gray-600 { border-color: #3a3a3a; }
+.bg-gray-800\/50 { background-color: #1e1e1e; }
+.bg-gray-900 { background-color: #181818; }
+
+/* SENSEI: Animação de "shake" para feedback de erro */
+@keyframes shake { 
+    10%, 90% { transform: translate3d(-1px, 0, 0); } 
+    20%, 80% { transform: translate3d(2px, 0, 0); } 
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); } 
+    40%, 60% { transform: translate3d(4px, 0, 0); } 
+}
