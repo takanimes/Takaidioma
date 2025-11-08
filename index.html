@@ -1,265 +1,48 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Takaidioma - Seu Roteiro para a Fluência</title>
+
+    <!-- SENSEI: SCRIPT "BOUNCER" DE SEGURANÇA (DESLIGADO) -->
+    <!-- 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyDV9v5ytbs3ZIO7wMxGrVXAsrQf5IDn0GA", 
+          authDomain: "...", 
+          projectId: "...", 
+          storageBucket: "...", 
+          messagingSenderId: "...", 
+          appId: "..." 
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                console.log("Acesso negado. Redirecionando para login...");
+                window.location.href = 'login_portao_premium.html';
+            } else {
+                console.log("Acesso VIP verificado. Bem-vindo!");
+            }
+        });
+    </script>
+    -->
+    <!-- FIM DO SCRIPT "BOUNCER" -->
+
     
-    <!-- SENSEI: Tailwind CSS (continua vindo de fora) -->
+    <!-- SENSEI: Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- SENSEI: Fontes (continua vindo de fora) -->
+    <!-- SENSEI: Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- SENSEI: Agora estamos linkando nosso arquivo CSS externo -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="min-h-screen flex flex-col items-center p-4 sm:p-6">
-
-    <div class="w-full max-w-6xl mx-auto">
-        <!-- Cabeçalho -->
-        <header class="flex items-center justify-between mb-8">
-            <div class="flex items-center space-x-4">
-                <!-- SENSEI: Logo ajustado para ser menor no mobile -->
-                <img src="logo_takanimes.png" alt="Logo Takanimes" class="rounded-full border-2 border-pink-500 w-12 h-12 sm:w-16 sm:h-16">
-                <div class="flex flex-col">
-                    <h1 class="text-2xl sm:text-3xl font-bold text-white">Takaidioma</h1>
-                    <h2 class="text-lg sm:text-xl text-pink-400">Takanimes</h2>
-                </div>
-            </div>
-            <!-- SENSEI: Navegação simplificada. O foco é o Roteiro e o Sensei IA. -->
-            <nav id="main-nav" class="hidden md:flex items-center space-x-4 text-lg">
-                <a class="nav-link active" data-tab="inicio">Roteiro</a>
-                <a class="nav-link" data-tab="aulas">Aulas</a>
-                <a class="nav-link" data-tab="i-plus-1">Método i+1</a>
-                <a class="nav-link" data-tab="sensei">✨ Sensei IA</a>
-            </nav>
-            <div class="md:hidden">
-                <button id="menu-btn" class="text-white focus:outline-none">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
-        </header>
-        
-        <!-- Menu Mobile -->
-        <!-- SENSEI: Menu mobile limpo, sem a venda do VIP e a aba Sobre. Foco total. -->
-        <div id="mobile-menu" class="hidden md:hidden mb-8">
-            <ul class="flex flex-col items-center space-y-4 text-lg bg-gray-900 p-6 rounded-lg">
-                <li><a class="nav-link-mobile active" data-tab="inicio">Roteiro</a></li>
-                <li><a class="nav-link-mobile" data-tab="aulas">Aulas (Fase 1)</a></li>
-                <li><a class="nav-link-mobile" data-tab="i-plus-1">Método i+1</a></li>
-                <li><a class="nav-link-mobile" data-tab="flashcards">Flashcards Hiragana</a></li>
-                <li><a class="nav-link-mobile" data-tab="flashcards-katakana">Flashcards Katakana</a></li>
-                <li><a class="nav-link-mobile" data-tab="kanji">Guia de Kanji</a></li>
-                <li><a class="nav-link-mobile" data-tab="quiz">Quiz de Animes</a></li>
-                <li><a class="nav-link-mobile" data-tab="sensei">✨ Sensei IA</a></li>
-            </ul>
-        </div>
-
-        <!-- Conteúdo Principal -->
-        <main>
-            <!-- SENSEI: Esta é a mudança estratégica principal. A home é o ROTEIRO. -->
-            <section id="inicio" class="tab-content">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-center text-white">Seu Roteiro Para a Fluência</h2>
-                <p class="text-base sm:text-lg text-gray-300 text-center mb-8 max-w-3xl mx-auto">Bem-vindo,(a) ao Takaidioma. Este é o seu QG. Sua jornada é baseada no método de 3 Fases. Comece pela Fase 1 e siga o caminho.</p>
-                
-                <!-- Roteiro (As 3 Fases) -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                    <!-- Fase 1 -->
-                    <div class="card rounded-lg p-6 flex flex-col items-center text-center border-2 border-pink-500 shadow-lg">
-                        <span class="text-sm font-bold text-pink-400 mb-2">PASSO 1</span>
-                        <h3 class="text-xl sm:text-2xl font-bold mb-3 text-white">Fase 1: Fundação</h3>
-                        <p class="mb-4 text-gray-300 flex-grow">Construa sua base. Aprenda a ler, ouvir e entender as estruturas do japonês com textos e áudios.</p>
-                        <a href="#" data-tab="aulas" class="link-to-tab btn-primary font-bold py-3 px-6 rounded-lg w-full mt-auto text-base sm:text-lg">Começar Aulas</a>
-                    </div>
-                    <!-- Fase 2 -->
-                    <div class="card rounded-lg p-6 flex flex-col items-center text-center">
-                        <span class="text-sm font-bold text-gray-400 mb-2">PASSO 2</span>
-                        <h3 class="text-xl sm:text-2xl font-bold mb-3 text-white">Fase 2: Mineração</h3>
-                        <p class="mb-4 text-gray-300 flex-grow">Expanda seu vocabulário. Use nossas ferramentas para "minerar" palavras e kanjis de frases que você entende.</p>
-                        <a href="#" data-tab="flashcards" class="link-to-tab btn-primary font-bold py-3 px-6 rounded-lg w-full mt-auto text-base sm:text-lg">Praticar Agora</a>
-                    </div>
-                    <!-- Fase 3 -->
-                    <div class="card rounded-lg p-6 flex flex-col items-center text-center">
-                        <span class="text-sm font-bold text-gray-400 mb-2">PASSO 3</span>
-                        <h3 class="text-xl sm:text-2xl font-bold mb-3 text-white">Fase 3: Imersão</h3>
-                        <p class="mb-4 text-gray-300 flex-grow">Viva o idioma. Use o Sensei IA para tirar dúvidas, peça recomendações de animes/mangás e mergulhe no japonês.</p>
-                        <a href="#" data-tab="sensei" class="link-to-tab btn-primary font-bold py-3 px-6 rounded-lg w-full mt-auto text-base sm:text-lg">Falar com Sensei</a>
-                    </div>
-                </div>
-
-                <!-- Ferramentas de Apoio (Para Fase 2) -->
-                <h2 class="text-2xl font-semibold mb-6 text-center text-white">Ferramentas de Mineração (Fase 2)</h2>
-                <!-- SENSEI: Grid atualizado de 'lg:grid-cols-3' para 'lg:grid-cols-2' para um grid 2x2 perfeito com 4 itens. -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                    <!-- SENSEI: CARD NOVO ADICIONADO AQUI -->
-                    <div class="card rounded-lg p-6 flex flex-col items-center text-center border-2 border-pink-500 shadow-lg">
-                        <img src="https://placehold.co/300x200/1e1e1e/f9258a?text=i%2B1" alt="Estação de Mineração i+1" class="rounded-lg mb-4">
-                        <h3 class="text-xl font-bold mb-2 text-white">Estação i+1</h3>
-                        <p class="mb-4 text-gray-300 flex-grow">Disseque sentenças de animes, palavra por palavra.</p>
-                        <a href="#" data-tab="i-plus-1" class="link-to-tab btn-primary font-bold py-2 px-6 rounded-lg w-full mt-auto">Minerar Agora</a>
-                    </div>
-                    
-                    <div class="card rounded-lg p-6 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/300x200/1e1e1e/FFFFFF?text=Flashcards" alt="Flashcards Interativos" class="rounded-lg mb-4">
-                        <h3 class="text-xl font-bold mb-2 text-white">Flashcards (Hiragana/Katakana)</h3>
-                        <p class="mb-4 text-gray-300 flex-grow">Pratique Hiragana e Katakana com cenas e frases de animes.</p>
-                        <a href="#" data-tab="flashcards" class="link-to-tab btn-primary font-bold py-2 px-6 rounded-lg w-full mt-auto">Praticar Hiragana</a>
-                        <a href="#" data-tab="flashcards-katakana" class="link-to-tab btn-primary bg-transparent border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white font-bold py-2 px-6 rounded-lg w-full mt-3">Praticar Katakana</a>
-                    </div>
-                     <div class="card rounded-lg p-6 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/300x200/1e1e1e/FFFFFF?text=Guia+de+Kanji" alt="Guia de Kanji" class="rounded-lg mb-4">
-                        <h3 class="text-xl font-bold mb-2 text-white">Guia de Kanji</h3>
-                        <p class="mb-4 text-gray-300">Aprenda os 50 kanji mais importantes que aparecem nos animes.</p>
-                        <a href="#" data-tab="kanji" class="link-to-tab btn-primary font-bold py-2 px-6 rounded-lg w-full mt-auto">Acessar Guia</a>
-                    </div>
-                     <!-- SENSEI: ERRO CORRIGIDO AQUI! 'httpsa://' mudado para 'https://' -->
-                     <div class="card rounded-lg p-6 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/300x200/1e1e1e/FFFFFF?text=Quiz+de+Animes" alt="Quiz de Animes" class="rounded-lg mb-4">
-                        <h3 class="text-xl font-bold mb-2 text-white">Quiz de Animes</h3>
-                        <p class="mb-4 text-gray-300">Teste seu conhecimento otaku e aprenda japonês se divertindo.</p>
-                        <a href="#" data-tab="quiz" class="link-to-tab btn-primary font-bold py-2 px-6 rounded-lg w-full mt-auto">Jogar Agora</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Seção de Aulas -->
-            <section id="aulas" class="tab-content hidden flex flex-col">
-                <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                <div class="card rounded-lg p-6 sm:p-8 max-w-4xl mx-auto space-y-8">
-                    <!-- SENSEI: O conteúdo das aulas permanece o mesmo. Apenas as cores do template mudam. -->
-                    <div class="text-center"><h2 class="text-2xl sm:text-3xl font-bold text-pink-400 mb-2">Aula 1: A Chave para Destravar o Japonês</h2><p class="text-base sm:text-lg text-gray-300">Sua jornada para assistir animes sem legenda começa agora!</p></div>
-                    <div class="grid md:grid-cols-2 gap-8 items-center"><img src="https://placehold.co/400x300/121212/f9258a?text=ようこそ！" alt="Bem-vindo ao Japonês" class="rounded-lg shadow-lg"><div><h3 class="text-2xl font-semibold text-white mb-4">Sua Jornada Começa Agora!</h3><p class="text-gray-300 mb-4">Olá! Seja bem-vindo(a) à sua introdução ao <span class="font-bold text-pink-400">Nihongo (日本語)</span>. Se você sempre sonhou em entender seus animes favoritos, ler mangás ou mergulhar em uma das culturas mais fascinantes do mundo, você está no lugar certo.</p><p class="text-gray-300">Esqueça a ideia de que japonês é um idioma impossível. Vamos desmistificar essa jornada, mostrando que, com o método certo, seu aprendizado pode ser rápido e, o mais importante, muito divertido.</p></div></div>
-                    <div class="border-t border-gray-700 pt-8"><h3 class="text-2xl font-semibold text-white mb-6 text-center">Os 4 Pilares da Escrita Japonesa</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center"><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">ひ</p><h4 class="font-bold text-pink-400">HIRAGANA</h4><p class="text-sm text-gray-400">A alma do Japão. Usado para palavras nativas e gramática.</p></div><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">カ</p><h4 class="font-bold text-pink-400">KATAKANA</h4><p class="text-sm text-gray-400">A janela para o mundo. Usado para palavras estrangeiras.</p></div><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">漢</p><h4 class="font-bold text-pink-400">KANJI</h4><p class="text-sm text-gray-400">As ideias em símbolos. Representam conceitos completos.</p></div><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">A</p><h4 class="font-bold text-pink-400">ROMAJI</h4><p class="text-sm text-gray-400">A ponte para nós. Escreve os sons japoneses com nossas letras.</p></div></div></div>
-                    <div class="border-t border-gray-700 pt-8"><h3 class="text-2xl font-semibold text-white mb-2 text-center">Hiragana (ひらがな) - A Alma do Japão</h3><p class="text-center text-gray-400 mb-6">Clique em cada caractere para ouvir a pronúncia!</p><div class="overflow-x-auto"><table id="hiragana-table" class="w-full text-center kana-table"></table></div></div>
-                     <div class="border-t border-gray-700 pt-8"><h3 class="text-2xl font-semibold text-white mb-2 text-center">Katakana (カタカナ) - A Janela para o Mundo</h3><p class="text-center text-gray-400 mb-6">Os sons são os mesmos do Hiragana! Clique para comparar.</p><div class="overflow-x-auto"><table id="katakana-table" class="w-full text-center kana-table"></table></div></div>
-                    <div class="border-t border-gray-700 pt-8 text-center"><h3 class="text-2xl font-semibold text-white mb-6">Parabéns por chegar até aqui!</h3><p class="text-gray-300 mb-6">Você completou a Fase 1! Agora é hora de praticar e minerar. Vá para a aba de <a href="#" data-tab="flashcards" class="link-to-tab font-bold text-pink-400 hover:underline">Flashcards</a> ou para o nosso <a href="#" data-tab="quiz" class="link-to-tab font-bold text-pink-400 hover:underline">Quiz</a>!</p><img src="https://placehold.co/500x250/121212/FFFFFF?text=Arigatou+Gozaimasu!" alt="Obrigado" class="rounded-lg shadow-lg mx-auto"></div>
-                </div>
-            </section>
-            
-            <!-- SENSEI: NOVA SEÇÃO "MÉTODO i+1" -->
-            <section id="i-plus-1" class="tab-content hidden flex flex-col">
-                <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                <div class="card rounded-lg p-6 sm:p-8 max-w-3xl mx-auto space-y-6 w-full">
-                    
-                    <div class="text-center">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-pink-400 mb-2">Estação de Mineração (Método i+1)</h2>
-                        <p class="text-base sm:text-lg text-gray-300">Ouça o áudio, disseque a sentença e entenda UMA nova palavra (i+1).</p>
-                    </div>
-
-                    <!-- Card da Sentença Atual -->
-                    <div id="sentence-card" class="bg-gray-900 p-6 rounded-lg border border-gray-700 space-y-6">
-                        
-                        <!-- SENSEI: Controles de áudio removidos, conforme solicitado. -->
-                        
-                        <!-- Sentença Interativa -->
-                        <div class="text-center">
-                            <!-- SENSEI: Movi a "Fonte" para aqui, fica mais limpo. -->
-                            <p class="text-sm text-gray-400 mb-4">Fonte: Anime "Naruto" (Ep. 1)</p>
-                            <h3 class="text-lg text-gray-300 mb-2">Sentença i+1:</h3>
-                            <div id="sentence-container" class="text-3xl sm:text-4xl font-bold text-white flex justify-center flex-wrap gap-x-2 gap-y-4 cursor-pointer" lang="ja">
-                                <!-- SENSEI: O JS vai popular isso. Exemplo: -->
-                                <!-- 
-                                <span class="sentence-word relative" data-reading="わたし" data-meaning="Eu" data-type="Kanji/Hiragana">私</span>
-                                <span class="sentence-word relative" data-reading="は" data-meaning="Partícula de tópico" data-type="Hiragana">は</span>
-                                <span class="sentence-word relative" data-reading="うずまきナルト" data-meaning="Uzumaki Naruto" data-type="Kanji/Katakana">うずまきナルト</span>
-                                <span class="sentence-word relative" data-reading="だ" data-meaning="É / Sou" data-type="Hiragana">だ</span>
-                                <span class="sentence-word relative" data-reading="ってばよ" data-meaning="Bordão (ênfase)" data-type="Hiragana">ってばよ</span>
-                                -->
-                            </div>
-                            <!-- Tooltip/Popover -->
-                            <div id="word-tooltip" class="hidden absolute z-10 p-3 rounded-lg bg-gray-800 border border-gray-600 shadow-xl text-left text-base transition-opacity duration-200">
-                                <p class="font-bold text-pink-400" id="tooltip-reading"></p>
-                                <p class="text-white" id="tooltip-meaning"></p>
-                                <p class="text-xs text-gray-400" id="tooltip-type"></p>
-                            </div>
-                        </div>
-
-                        <!-- Ações do Aluno -->
-                        <div class="border-t border-gray-700 pt-6 space-y-4">
-                            <button id="toggle-translation-btn" class="w-full text-center py-3 px-4 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 transition-all">Revelar Tradução</button>
-                            <div id="translation-container" class="hidden text-center p-4 bg-gray-800 rounded-lg">
-                                <p class="text-lg text-gray-300" id="sentence-translation"></p>
-                            </div>
-                            
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <button id="explain-grammar-btn" class="btn-gemini font-bold py-3 px-6 rounded-lg w-full text-base">✨ Explicar Gramática (IA)</button>
-                                <button id="next-sentence-btn" class="btn-primary font-bold py-3 px-6 rounded-lg w-full text-base">Próxima Sentença &rarr;</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Feedback da IA -->
-                    <div id="grammar-explanation" class="hidden p-4 bg-gray-900 rounded-lg border border-gray-700">
-                        <h4 class="font-bold text-pink-400 mb-2">Taka-Sensei IA explica:</h4>
-                        <div id="grammar-content" class="text-gray-300 space-y-2"></div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Seção de Flashcards Hiragana -->
-            <section id="flashcards" class="tab-content hidden flex flex-col">
-                <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                <div class="max-w-xl mx-auto text-center"><h2 class="text-2xl font-semibold mb-4 text-pink-400">Flashcards Interativos de Hiragana</h2><p class="mb-6 text-gray-300">Digite o som (romaji) do caractere abaixo. Acerte para revelar uma curiosidade ou frase de anime!</p><div class="[perspective:1000px]"><div id="flashcard-flip" class="flashcard-flip w-full h-80 relative"><div class="flashcard-front card rounded-lg p-6 flex flex-col items-center justify-center"><p id="flashcard-char" class="text-8xl sm:text-9xl font-bold">あ</p></div><div class="flashcard-back card rounded-lg p-6 flex flex-col items-center justify-center"><img id="flashcard-image" src="https://placehold.co/400x200/f9258a/FFFFFF?text=Cena+de+Anime" class="rounded-lg mb-4 max-h-40 object-cover"><p id="flashcard-phrase" class="text-xl font-bold"></p><p id="flashcard-trivia" class="text-gray-300"></p></div></div></div><div id="flashcard-controls" class="mt-6 relative"><input type="text" id="flashcard-input" class="flashcard-input text-center w-full sm:w-1-2 mx-auto p-4 rounded-lg text-2xl uppercase tracking-widest focus:outline-none" placeholder="Digite o Romaji"><p id="flashcard-feedback" class="text-red-500 font-bold mt-2 h-6"></p><button id="flashcard-check" class="btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Verificar</button><button id="flashcard-next" class="hidden btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Próximo</button></div></div>
-            </section>
-            
-            <!-- Seção de Flashcards Katakana -->
-            <section id="flashcards-katakana" class="tab-content hidden flex flex-col">
-                <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                <div class="max-w-xl mx-auto text-center"><h2 class="text-2xl font-semibold mb-4 text-pink-400">Flashcards Interativos de Katakana</h2><p class="mb-6 text-gray-300">Digite o som (romaji) do caractere abaixo. Acerte para revelar uma curiosidade ou frase de anime!</p><div class="[perspective:1000px]"><div id="flashcard-flip-ktk" class="flashcard-flip w-full h-80 relative"><div class="flashcard-front card rounded-lg p-6 flex flex-col items-center justify-center"><p id="flashcard-char-ktk" class="text-8xl sm:text-9xl font-bold">カ</p></div><div class="flashcard-back card rounded-lg p-6 flex flex-col items-center justify-center"><img id="flashcard-image-ktk" src="https://placehold.co/400x200/f9258a/FFFFFF?text=Cena+de+Anime" class="rounded-lg mb-4 max-h-40 object-cover"><p id="flashcard-phrase-ktk" class="text-xl font-bold"></p><p id="flashcard-trivia-ktk" class="text-gray-300"></p></div></div></div><div id="flashcard-controls-ktk" class="mt-6 relative"><input type="text" id="flashcard-input-ktk" class="flashcard-input text-center w-full sm:w-1-2 mx-auto p-4 rounded-lg text-2xl uppercase tracking-widest focus:outline-none" placeholder="Digite o Romaji"><p id="flashcard-feedback-ktk" class="text-red-500 font-bold mt-2 h-6"></p><button id="flashcard-check-ktk" class="btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Verificar</button><button id="flashcard-next-ktk" class="hidden btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Próximo</button></div></div>
-            </section>
-            
-            <!-- Seção Guia de Kanji -->
-            <section id="kanji" class="tab-content hidden flex flex-col">
-                <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                 <div class="card rounded-lg p-6 sm:p-8 mb-6"><h2 class="text-2xl font-semibold mb-4 text-center text-pink-400">Desvendando os Kanji</h2><p class="text-center mb-6 text-gray-300 max-w-3xl mx-auto">Kanji são ideogramas que representam ideias. Aprender a "ler" esses desenhos é um passo gigante para a fluência. Cada um deles possui duas leituras, um segredo que vamos desvendar agora.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"><div><h3 class="text-xl font-bold text-white mb-2">On'yomi (音読み) - A Leitura "Chinesa"</h3><p class="text-gray-300">É a pronúncia que imita o som original do chinês. Geralmente é usada quando vários kanji se juntam para formar uma nova palavra, como peças de um quebra-cabeça. Pense nela como as raízes "importadas" do idioma.</p></div><div><h3 class="text-xl font-bold text-white mb-2">Kun'yomi (訓読み) - A Leitura "Japonesa"</h3><p class="text-gray-300">É a pronúncia da palavra que já existia em japonês antes da chegada do kanji. Geralmente é usada quando o kanji aparece sozinho ou com terminações em Hiragana. É a leitura "nativa" do caractere.</p></div></div><div class="mt-6 border-t border-gray-700 pt-6"><h3 class="text-xl font-bold text-white mb-2 text-center">O que é um Mnemônico?</h3><p class="text-gray-300 text-center">É uma técnica de memorização! A IA vai criar uma historinha ou uma imagem mental criativa para te ajudar a nunca mais esquecer o formato e o significado de um kanji. Clique no botão "✨ Criar Mnemônico" em qualquer card para testar!</p></div></div>
-                <h3 class="text-xl font-semibold mb-6 text-center text-white">Os 50 Kanji Mais Usados</h3>
-                <div id="kanji-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <!-- SENSEI: O JavaScript irá popular esta área. -->
-                </div>
-            </section>
-
-            <!-- Seção de Quiz -->
-            <section id="quiz" class="tab-content hidden flex flex-col">
-                <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                <div id="quiz-container" class="card rounded-lg p-6 sm:p-8 max-w-2xl mx-auto w-full">
-                    <div id="quiz-start"><h2 class="text-2xl font-semibold mb-4 text-center text-pink-400">Quiz dos Animes!</h2><p class="text-center mb-6 text-gray-300">Acha que conhece o japonês dos animes? Teste seu conhecimento otaku e aprenda se divertindo!</p><button id="start-quiz-btn" class="btn-primary font-bold py-3 px-8 rounded-lg w-full text-lg">Começar Desafio!</button></div>
-                    <div id="quiz-game" class="hidden"><div class="flex justify-between items-center mb-4"><h2 class="text-xl font-semibold text-pink-400">Pergunta <span id="question-number"></span></h2><p class="text-lg font-bold">Pontos: <span id="score">0</span></p></div><img id="quiz-image" src="" alt="Cena de Anime" class="rounded-lg mb-4 w-full h-40 sm:h-48 object-cover"><p id="question-text" class="text-xl sm:text-2xl mb-6 min-h-[6rem]"></p><div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div><button id="next-question-btn" class="hidden btn-primary font-bold py-3 px-8 rounded-lg w-full mt-8 text-lg">Próxima Pergunta</button></div>
-                    <div id="quiz-end" class="hidden text-center"><h2 class="text-2xl font-semibold mb-4 text-pink-400">Desafio Concluído!</h2><p class="text-xl mb-2">Sua pontuação final foi:</p><p id="final-score" class="text-4xl sm:text-5xl font-bold text-white my-4"></p><p id="feedback-message" class="text-lg mb-6"></p><button id="restart-quiz-btn" class="btn-primary font-bold py-3 px-8 rounded-lg w-full text-lg">Jogar Novamente</button></div>
-                </div>
-            </section>
-            
-            <!-- Seção Sensei IA -->
-            <section id="sensei" class="tab-content hidden flex flex-col">
-                 <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                <div class="card rounded-lg p-4 sm:p-6 max-w-3xl mx-auto w-full"><h2 class="text-2xl font-semibold mb-4 text-center text-pink-400">✨ Converse com o Taka-Sensei IA</h2><div id="chat-window" class="chat-window p-4 rounded-lg mb-4 space-y-4"><div class="flex justify-start"><div class="chat-bubble ai">Konnichiwa! Eu sou o Taka-Sensei. Pergunte-me qualquer coisa sobre japonês, desde gramática até "Qual anime devo ver para praticar imersão?". Como posso te ajudar a destravar o Nihongo hoje?</div></div></div><div class="flex space-x-2"><input type="text" id="chat-input" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Digite sua pergunta..."><button id="chat-send-btn" class="btn-primary font-bold py-2 px-6 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button></div></div>
-            </section>
-            
-        </main>
-    </div>
-
-    <!-- SENSEI: Agora estamos linkando nosso arquivo JS externo. 
-         'defer' garante que ele só execute após o HTML ser carregado. -->
-    <script src="script.js" defer></script>
-</body>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takaidioma - Seu Roteiro para a Fluência</title>
-    
-    <!-- SENSEI: Tailwind CSS (continua vindo de fora) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- SENSEI: Fontes (continua vindo de fora) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- SENSEI: AQUI ESTÁ A REFERÊNCIA DO CSS -->
-    <!-- O "./" é crucial para o GitHub Pages encontrar o arquivo -->
+    <!-- SENSEI: O "./" é crucial para o GitHub Pages encontrar o arquivo -->
     <link rel="stylesheet" href="./style.css">
 
 </head>
@@ -269,19 +52,21 @@
         <!-- Cabeçalho -->
         <header class="flex items-center justify-between mb-8">
             <div class="flex items-center space-x-4">
-                <!-- SENSEI: Logo ajustado para ser menor no mobile e com o nome do arquivo .png -->
-                <img src="./logo_takanimes.png" alt="Logo Takanimes" class="rounded-full border-2 border-pink-500 w-12 h-12 sm:w-16 sm:h-16">
+                <!-- SENSEI: Borda da logo agora é ROXA (via style.css) -->
+                <img src="./logo_takanimes.png" alt="Logo Takanimes" class="rounded-full border-2 border-purple-500 w-12 h-12 sm:w-16 sm:h-16">
                 <div class="flex flex-col">
                     <h1 class="text-2xl sm:text-3xl font-bold text-white">Takaidioma</h1>
-                    <h2 class="text-lg sm:text-xl text-pink-400">Takanimes</h2>
+                    <!-- SENSEI: Título secundário agora é ROXO (via style.css) -->
+                    <h2 class="text-lg sm:text-xl text-purple-400">Takanimes</h2>
                 </div>
             </div>
-            <!-- SENSEI: Navegação simplificada. O foco é o Roteiro e o Sensei IA. -->
             <nav id="main-nav" class="hidden md:flex items-center space-x-4 text-lg">
                 <a class="nav-link active" data-tab="inicio">Roteiro</a>
                 <a class="nav-link" data-tab="aulas">Aulas (Fase 1)</a>
                 <a class="nav-link" data-tab="i-plus-1">Método i+1</a>
                 <a class="nav-link" data-tab="sensei">✨ Sensei IA</a>
+                <!-- SENSEI: Botão de Sair (DESLIGADO) -->
+                <!-- <a id="logout-btn" class="nav-link text-red-400 hover:text-red-500" href="#">Sair</a> -->
             </nav>
             <div class="md:hidden">
                 <button id="menu-btn" class="text-white focus:outline-none">
@@ -291,7 +76,6 @@
         </header>
         
         <!-- Menu Mobile -->
-        <!-- SENSEI: Menu mobile limpo, sem a venda do VIP e a aba Sobre. Foco total. -->
         <div id="mobile-menu" class="hidden md:hidden mb-8">
             <ul class="flex flex-col items-center space-y-4 text-lg bg-gray-900 p-6 rounded-lg">
                 <li><a class="nav-link-mobile active" data-tab="inicio">Roteiro</a></li>
@@ -302,12 +86,14 @@
                 <li><a class="nav-link-mobile" data-tab="kanji">Guia de Kanji</a></li>
                 <li><a class="nav-link-mobile" data-tab="quiz">Quiz de Animes</a></li>
                 <li><a class="nav-link-mobile" data-tab="sensei">✨ Sensei IA</a></li>
+                <!-- SENSEI: Botão de Sair (DESLIGADO) -->
+                <!-- <li><a id="logout-btn-mobile" class="nav-link-mobile text-red-400" href="#">Sair</a></li> -->
             </ul>
         </div>
 
         <!-- Conteúdo Principal -->
         <main>
-            <!-- SENSEI: Esta é a mudança estratégica principal. A home é o ROTEIRO. -->
+            <!-- Seção Página Inicial -->
             <section id="inicio" class="tab-content">
                 <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-center text-white">Seu Roteiro Para a Fluência</h2>
                 <p class="text-base sm:text-lg text-gray-300 text-center mb-8 max-w-3xl mx-auto">Bem-vindo,(a) ao Takaidioma. Este é o seu QG. Sua jornada é baseada no método de 3 Fases. Comece pela Fase 1 e siga o caminho.</p>
@@ -315,8 +101,9 @@
                 <!-- Roteiro (As 3 Fases) -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                     <!-- Fase 1 -->
-                    <div class="card rounded-lg p-6 flex flex-col items-center text-center border-2 border-pink-500 shadow-lg">
-                        <span class="text-sm font-bold text-pink-400 mb-2">PASSO 1</span>
+                    <!-- SENSEI: Destaque da Fase 1 agora é ROXO (via style.css) -->
+                    <div class="card rounded-lg p-6 flex flex-col items-center text-center border-2 border-purple-500 shadow-lg">
+                        <span class="text-sm font-bold text-purple-400 mb-2">PASSO 1</span>
                         <h3 class="text-xl sm:text-2xl font-bold mb-3 text-white">Fase 1: Fundação</h3>
                         <p class="mb-4 text-gray-300 flex-grow">Construa sua base. Aprenda a ler, ouvir e entender as estruturas do japonês com textos e áudios.</p>
                         <a href="#" data-tab="aulas" class="link-to-tab btn-primary font-bold py-3 px-6 rounded-lg w-full mt-auto text-base sm:text-lg">Começar Aulas</a>
@@ -339,32 +126,32 @@
 
                 <!-- Ferramentas de Apoio (Para Fase 2) -->
                 <h2 class="text-2xl font-semibold mb-6 text-center text-white">Ferramentas de Mineração (Fase 2)</h2>
-                <!-- SENSEI: Grid atualizado de 'lg:grid-cols-3' para 'lg:grid-cols-2' para um grid 2x2 perfeito com 4 itens. -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                    <!-- SENSEI: CARD NOVO ADICIONADO AQUI -->
-                    <div class="card rounded-lg p-6 flex flex-col items-center text-center border-2 border-pink-500 shadow-lg">
-                        <img src="https://placehold.co/300x200/1e1e1e/f9258a?text=i%2B1" alt="Estação de Mineração i+1" class="rounded-lg mb-4">
+                    <!-- SENSEI: Destaque do i+1 agora é ROXO (via style.css) -->
+                    <div class="card rounded-lg p-6 flex flex-col items-center text-center border-2 border-purple-500 shadow-lg">
+                        <img src="https://placehold.co/300x200/111/8B5CF6?text=i%2B1" alt="Estação de Mineração i+1" class="rounded-lg mb-4">
                         <h3 class="text-xl font-bold mb-2 text-white">Estação i+1</h3>
                         <p class="mb-4 text-gray-300 flex-grow">Disseque sentenças de animes, palavra por palavra.</p>
                         <a href="#" data-tab="i-plus-1" class="link-to-tab btn-primary font-bold py-2 px-6 rounded-lg w-full mt-auto">Minerar Agora</a>
                     </div>
                     
                     <div class="card rounded-lg p-6 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/300x200/1e1e1e/FFFFFF?text=Flashcards" alt="Flashcards Interativos" class="rounded-lg mb-4">
+                        <img src="https://placehold.co/300x200/111/FFFFFF?text=Flashcards" alt="Flashcards Interativos" class="rounded-lg mb-4">
                         <h3 class="text-xl font-bold mb-2 text-white">Flashcards (Hiragana/Katakana)</h3>
                         <p class="mb-4 text-gray-300 flex-grow">Pratique Hiragana e Katakana com cenas e frases de animes.</p>
                         <a href="#" data-tab="flashcards" class="link-to-tab btn-primary font-bold py-2 px-6 rounded-lg w-full mt-auto">Praticar Hiragana</a>
-                        <a href="#" data-tab="flashcards-katakana" class="link-to-tab btn-primary bg-transparent border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white font-bold py-2 px-6 rounded-lg w-full mt-3">Praticar Katakana</a>
+                        <!-- SENSEI: Botão secundário agora é ROXO (via style.css) -->
+                        <a href="#" data-tab="flashcards-katakana" class="link-to-tab btn-primary bg-transparent border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white font-bold py-2 px-6 rounded-lg w-full mt-3">Praticar Katakana</a>
                     </div>
                      <div class="card rounded-lg p-6 flex flex-col items-center text-center">
-                        <img src="https://placehold.co/300x200/1e1e1e/FFFFFF?text=Guia+de+Kanji" alt="Guia de Kanji" class="rounded-lg mb-4">
+                        <img src="https://placehold.co/300x200/111/FFFFFF?text=Guia+de+Kanji" alt="Guia de Kanji" class="rounded-lg mb-4">
                         <h3 class="text-xl font-bold mb-2 text-white">Guia de Kanji</h3>
                         <p class="mb-4 text-gray-300">Aprenda os 50 kanji mais importantes que aparecem nos animes.</p>
                         <a href="#" data-tab="kanji" class="link-to-tab btn-primary font-bold py-2 px-6 rounded-lg w-full mt-auto">Acessar Guia</a>
                     </div>
                      <div class="card rounded-lg p-6 flex flex-col items-center text-center">
-                        <!-- SENSEI: Link da imagem do Quiz CORRIGIDO -->
-                        <img src="https://placehold.co/300x200/1e1e1e/FFFFFF?text=Quiz+de+Animes" alt="Quiz de Animes" class="rounded-lg mb-4">
+                        <!-- SENSEI: Corrigido o erro de 'httpsa://' -->
+                        <img src="https://placehold.co/300x200/111/FFFFFF?text=Quiz+de+Animes" alt="Quiz de Animes" class="rounded-lg mb-4">
                         <h3 class="text-xl font-bold mb-2 text-white">Quiz de Animes</h3>
                         <p class="mb-4 text-gray-300">Teste seu conhecimento otaku e aprenda japonês se divertindo.</p>
                         <a href="#" data-tab="quiz" class="link-to-tab btn-primary font-bold py-2 px-6 rounded-lg w-full mt-auto">Jogar Agora</a>
@@ -376,84 +163,69 @@
             <section id="aulas" class="tab-content hidden flex flex-col">
                 <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
                 <div class="card rounded-lg p-6 sm:p-8 max-w-4xl mx-auto space-y-8">
-                    <!-- SENSEI: O conteúdo das aulas permanece o mesmo. Apenas as cores do template mudam. -->
-                    <div class="text-center"><h2 class="text-2xl sm:text-3xl font-bold text-pink-400 mb-2">Aula 1: A Chave para Destravar o Japonês</h2><p class="text-base sm:text-lg text-gray-300">Sua jornada para assistir animes sem legenda começa agora!</p></div>
-                    <div class="grid md:grid-cols-2 gap-8 items-center"><img src="https://placehold.co/400x300/121212/f9258a?text=ようこそ！" alt="Bem-vindo ao Japonês" class="rounded-lg shadow-lg"><div><h3 class="text-2xl font-semibold text-white mb-4">Sua Jornada Começa Agora!</h3><p class="text-gray-300 mb-4">Olá! Seja bem-vindo(a) à sua introdução ao <span class="font-bold text-pink-400">Nihongo (日本語)</span>. Se você sempre sonhou em entender seus animes favoritos, ler mangás ou mergulhar em uma das culturas mais fascinantes do mundo, você está no lugar certo.</p><p class="text-gray-300">Esqueça a ideia de que japonês é um idioma impossível. Vamos desmistificar essa jornada, mostrando que, com o método certo, seu aprendizado pode ser rápido e, o mais importante, muito divertido.</p></div></div>
-                    <div class="border-t border-gray-700 pt-8"><h3 class="text-2xl font-semibold text-white mb-6 text-center">Os 4 Pilares da Escrita Japonesa</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center"><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">ひ</p><h4 class="font-bold text-pink-400">HIRAGANA</h4><p class="text-sm text-gray-400">A alma do Japão. Usado para palavras nativas e gramática.</p></div><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">カ</p><h4 class="font-bold text-pink-400">KATAKANA</h4><p class="text-sm text-gray-400">A janela para o mundo. Usado para palavras estrangeiras.</p></div><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">漢</p><h4 class="font-bold text-pink-400">KANJI</h4><p class="text-sm text-gray-400">As ideias em símbolos. Representam conceitos completos.</p></div><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">A</p><h4 class="font-bold text-pink-400">ROMAJI</h4><p class="text-sm text-gray-400">A ponte para nós. Escreve os sons japoneses com nossas letras.</p></div></div></div>
+                    <!-- SENSEI: Destaques ROXOS (via style.css) -->
+                    <div class="text-center"><h2 class="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">Aula 1: A Chave para Destravar o Japonês</h2><p class="text-base sm:text-lg text-gray-300">Sua jornada para assistir animes sem legenda começa agora!</p></div>
+                    <div class="grid md:grid-cols-2 gap-8 items-center"><img src="https://placehold.co/400x300/111/8B5CF6?text=ようこそ！" alt="Bem-vindo ao Japonês" class="rounded-lg shadow-lg"><div><h3 class="text-2xl font-semibold text-white mb-4">Sua Jornada Começa Agora!</h3><p class="text-gray-300 mb-4">Olá! Seja bem-vindo(a) à sua introdução ao <span class="font-bold text-purple-400">Nihongo (日本語)</span>. Se você sempre sonhou em entender seus animes favoritos, ler mangás ou mergulhar em uma das culturas mais fascinantes do mundo, você está no lugar certo.</p><p class="text-gray-300">Esqueça a ideia de que japonês é um idioma impossível. Vamos desmistificar essa jornada, mostrando que, com o método certo, seu aprendizado pode ser rápido e, o mais importante, muito divertido.</p></div></div>
+                    <div class="border-t border-gray-700 pt-8"><h3 class="text-2xl font-semibold text-white mb-6 text-center">Os 4 Pilares da Escrita Japonesa</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center"><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">ひ</p><h4 class="font-bold text-purple-400">HIRAGANA</h4><p class="text-sm text-gray-400">A alma do Japão. Usado para palavras nativas e gramática.</p></div><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">カ</p><h4 class="font-bold text-purple-400">KATAKANA</h4><p class="text-sm text-gray-400">A janela para o mundo. Usado para palavras estrangeiras.</p></div><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">漢</p><h4 class="font-bold text-purple-400">KANJI</h4><p class="text-sm text-gray-400">As ideias em símbolos. Representam conceitos completos.</p></div><div class="bg-gray-900 p-4 rounded-lg"><p class="text-4xl mb-2">A</p>
+                    <!-- SENSEI: ERRO CORRIGIDO! O 'M' sumiu. Era 'class_name', agora é 'class'. -->
+                    <h4 class="font-bold text-purple-400">ROMAJI</h4>
+                    <p class="text-sm text-gray-400">A ponte para nós. Escreve os sons japoneses com nossas letras.</p></div></div></div>
                     <div class="border-t border-gray-700 pt-8"><h3 class="text-2xl font-semibold text-white mb-2 text-center">Hiragana (ひらがな) - A Alma do Japão</h3><p class="text-center text-gray-400 mb-6">Clique em cada caractere para ouvir a pronúncia!</p><div class="overflow-x-auto"><table id="hiragana-table" class="w-full text-center kana-table"></table></div></div>
                      <div class="border-t border-gray-700 pt-8"><h3 class="text-2xl font-semibold text-white mb-2 text-center">Katakana (カタカナ) - A Janela para o Mundo</h3><p class="text-center text-gray-400 mb-6">Os sons são os mesmos do Hiragana! Clique para comparar.</p><div class="overflow-x-auto"><table id="katakana-table" class="w-full text-center kana-table"></table></div></div>
-                    <div class="border-t border-gray-700 pt-8 text-center"><h3 class="text-2xl font-semibold text-white mb-6">Parabéns por chegar até aqui!</h3><p class="text-gray-300 mb-6">Você completou a Fase 1! Agora é hora de praticar e minerar. Vá para a aba de <a href="#" data-tab="flashcards" class="link-to-tab font-bold text-pink-400 hover:underline">Flashcards</a> ou para o nosso <a href="#" data-tab="quiz" class="link-to-tab font-bold text-pink-400 hover:underline">Quiz</a>!</p><img src="https://placehold.co/500x250/121212/FFFFFF?text=Arigatou+Gozaimasu!" alt="Obrigado" class="rounded-lg shadow-lg mx-auto"></div>
+                    <div class="border-t border-gray-700 pt-8 text-center"><h3 class="text-2xl font-semibold text-white mb-6">Parabéns por chegar até aqui!</h3><p class="text-gray-300 mb-6">Você completou a Fase 1! Agora é hora de praticar e minerar. Vá para a aba de <a href="#" data-tab="flashcards" class="link-to-tab font-bold text-purple-400 hover:underline">Flashcards</a> ou para o nosso <a href="#" data-tab="quiz" class="link-to-tab font-bold text-purple-400 hover:underline">Quiz</a>!</p><img src="https://placehold.co/500x250/000/FFFFFF?text=Arigatou+Gozaimasu!" alt="Obrigado" class="rounded-lg shadow-lg mx-auto"></div>
                 </div>
             </section>
             
-            <!-- SENSEI: NOVA SEÇÃO "MÉTODO i+1" -->
+            <!-- Seção i+1 -->
             <section id="i-plus-1" class="tab-content hidden flex flex-col">
                 <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
                 <div class="card rounded-lg p-6 sm:p-8 max-w-3xl mx-auto space-y-6 w-full">
-                    
-                    <div class="text-center">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-pink-400 mb-2">Estação de Mineração (Método i+1)</h2>
-                        <p class="text-base sm:text-lg text-gray-300">Disseque a sentença e entenda UMA nova palavra (i+1).</p>
-                    </div>
-
-                    <!-- Card da Sentença Atual -->
+                    <div class="text-center"><h2 class="text-2xl sm:text-3xl font-bold text-purple-400 mb-2">Estação de Mineração (Método i+1)</h2><p class="text-base sm:text-lg text-gray-300">Disseque a sentença e entenda UMA nova palavra (i+1).</p></div>
                     <div id="sentence-card" class="bg-gray-900 p-6 rounded-lg border border-gray-700 space-y-6">
-                        
-                        <!-- Sentença Interativa -->
                         <div class="text-center">
-                            <!-- SENSEI: Movi a "Fonte" para aqui, fica mais limpo. -->
                             <p class="text-sm text-gray-400 mb-4">Fonte: Anime "Naruto" (Ep. 1)</p>
                             <h3 class="text-lg text-gray-300 mb-2">Sentença i+1:</h3>
-                            <div id="sentence-container" class="text-3xl sm:text-4xl font-bold text-white flex justify-center flex-wrap gap-x-2 gap-y-4 cursor-pointer" lang="ja">
-                                <!-- O JS vai popular isso. -->
-                            </div>
-                            <!-- Tooltip/Popover -->
+                            <div id="sentence-container" class="text-3xl sm:text-4xl font-bold text-white flex justify-center flex-wrap gap-x-2 gap-y-4 cursor-pointer" lang="ja"></div>
                             <div id="word-tooltip" class="hidden absolute z-10 p-3 rounded-lg bg-gray-800 border border-gray-600 shadow-xl text-left text-base transition-opacity duration-200">
-                                <p class="font-bold text-pink-400" id="tooltip-reading"></p>
+                                <p class="font-bold text-purple-400" id="tooltip-reading"></p>
                                 <p class="text-white" id="tooltip-meaning"></p>
                                 <p class="text-xs text-gray-400" id="tooltip-type"></p>
                             </div>
                         </div>
-
-                        <!-- Ações do Aluno -->
                         <div class="border-t border-gray-700 pt-6 space-y-4">
                             <button id="toggle-translation-btn" class="w-full text-center py-3 px-4 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 transition-all">Revelar Tradução</button>
                             <div id="translation-container" class="hidden text-center p-4 bg-gray-800 rounded-lg">
                                 <p class="text-lg text-gray-300" id="sentence-translation"></p>
                             </div>
-                            
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <button id="explain-grammar-btn" class="btn-gemini font-bold py-3 px-6 rounded-lg w-full text-base">✨ Explicar Gramática (IA)</button>
                                 <button id="next-sentence-btn" class="btn-primary font-bold py-3 px-6 rounded-lg w-full text-base">Próxima Sentença &rarr;</button>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Feedback da IA -->
                     <div id="grammar-explanation" class="hidden p-4 bg-gray-900 rounded-lg border border-gray-700">
-                        <h4 class="font-bold text-pink-400 mb-2">Taka-Sensei IA explica:</h4>
+                        <h4 class="font-bold text-purple-400 mb-2">Taka-Sensei IA explica:</h4>
                         <div id="grammar-content" class="text-gray-300 space-y-2"></div>
                     </div>
-
                 </div>
             </section>
 
             <!-- Seção de Flashcards Hiragana -->
             <section id="flashcards" class="tab-content hidden flex flex-col">
                 <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                <div class="max-w-xl mx-auto text-center"><h2 class="text-2xl font-semibold mb-4 text-pink-400">Flashcards Interativos de Hiragana</h2><p class="mb-6 text-gray-300">Digite o som (romaji) do caractere abaixo. Acerte para revelar uma curiosidade ou frase de anime!</p><div class="[perspective:1000px]"><div id="flashcard-flip" class="flashcard-flip w-full h-80 relative"><div class="flashcard-front card rounded-lg p-6 flex flex-col items-center justify-center"><p id="flashcard-char" class="text-8xl sm:text-9xl font-bold">あ</p></div><div class="flashcard-back card rounded-lg p-6 flex flex-col items-center justify-center"><img id="flashcard-image" src="https://placehold.co/400x200/f9258a/FFFFFF?text=Cena+de+Anime" class="rounded-lg mb-4 max-h-40 object-cover"><p id="flashcard-phrase" class="text-xl font-bold"></p><p id="flashcard-trivia" class="text-gray-300"></p></div></div></div><div id="flashcard-controls" class="mt-6 relative"><input type="text" id="flashcard-input" class="flashcard-input text-center w-full sm:w-1-2 mx-auto p-4 rounded-lg text-2xl uppercase tracking-widest focus:outline-none" placeholder="Digite o Romaji"><p id="flashcard-feedback" class="text-red-500 font-bold mt-2 h-6"></p><button id="flashcard-check" class="btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Verificar</button><button id="flashcard-next" class="hidden btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Próximo</button></div></div>
+                <div class="max-w-xl mx-auto text-center"><h2 class="text-2xl font-semibold mb-4 text-purple-400">Flashcards Interativos de Hiragana</h2><p class="mb-6 text-gray-300">Digite o som (romaji) do caractere abaixo. Acerte para revelar uma curiosidade ou frase de anime!</p><div class="[perspective:1000px]"><div id="flashcard-flip" class="flashcard-flip w-full h-80 relative"><div class="flashcard-front card rounded-lg p-6 flex flex-col items-center justify-center"><p id="flashcard-char" class="text-8xl sm:text-9xl font-bold">あ</p></div><div class="flashcard-back card rounded-lg p-6 flex flex-col items-center justify-center"><img id="flashcard-image" src="https://placehold.co/400x200/8B5CF6/FFFFFF?text=Cena+de+Anime" class="rounded-lg mb-4 max-h-40 object-cover"><p id="flashcard-phrase" class="text-xl font-bold"></p><p id="flashcard-trivia" class="text-gray-300"></p></div></div></div><div id="flashcard-controls" class="mt-6 relative"><input type="text" id="flashcard-input" class="flashcard-input text-center w-full sm:w-1-2 mx-auto p-4 rounded-lg text-2xl uppercase tracking-widest focus:outline-none" placeholder="Digite o Romaji"><p id="flashcard-feedback" class="text-red-500 font-bold mt-2 h-6"></p><button id="flashcard-check" class="btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Verificar</button><button id="flashcard-next" class="hidden btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Próximo</button></div></div>
             </section>
             
             <!-- Seção de Flashcards Katakana -->
             <section id="flashcards-katakana" class="tab-content hidden flex flex-col">
                 <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                <div class="max-w-xl mx-auto text-center"><h2 class="text-2xl font-semibold mb-4 text-pink-400">Flashcards Interativos de Katakana</h2><p class="mb-6 text-gray-300">Digite o som (romaji) do caractere abaixo. Acerte para revelar uma curiosidade ou frase de anime!</p><div class="[perspective:1000px]"><div id="flashcard-flip-ktk" class="flashcard-flip w-full h-80 relative"><div class="flashcard-front card rounded-lg p-6 flex flex-col items-center justify-center"><p id="flashcard-char-ktk" class="text-8xl sm:text-9xl font-bold">カ</p></div><div class="flashcard-back card rounded-lg p-6 flex flex-col items-center justify-center"><img id="flashcard-image-ktk" src="https://placehold.co/400x200/f9258a/FFFFFF?text=Cena+de+Anime" class="rounded-lg mb-4 max-h-40 object-cover"><p id="flashcard-phrase-ktk" class="text-xl font-bold"></p><p id="flashcard-trivia-ktk" class="text-gray-300"></p></div></div></div><div id="flashcard-controls-ktk" class="mt-6 relative"><input type="text" id="flashcard-input-ktk" class="flashcard-input text-center w-full sm:w-1-2 mx-auto p-4 rounded-lg text-2xl uppercase tracking-widest focus:outline-none" placeholder="Digite o Romaji"><p id="flashcard-feedback-ktk" class="text-red-500 font-bold mt-2 h-6"></p><button id="flashcard-check-ktk" class="btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Verificar</button><button id="flashcard-next-ktk" class="hidden btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Próximo</button></div></div>
+                <div class="max-w-xl mx-auto text-center"><h2 class="text-2xl font-semibold mb-4 text-purple-400">Flashcards Interativos de Katakana</h2><p class="mb-6 text-gray-300">Digite o som (romaji) do caractere abaixo. Acerte para revelar uma curiosidade ou frase de anime!</p><div class="[perspective:1000px]"><div id="flashcard-flip-ktk" class="flashcard-flip w-full h-80 relative"><div class="flashcard-front card rounded-lg p-6 flex flex-col items-center justify-center"><p id="flashcard-char-ktk" class="text-8xl sm:text-9xl font-bold">カ</p></div><div class="flashcard-back card rounded-lg p-6 flex flex-col items-center justify-center"><img id="flashcard-image-ktk" src="https://placehold.co/400x200/8B5CF6/FFFFFF?text=Cena+de+Anime" class="rounded-lg mb-4 max-h-40 object-cover"><p id="flashcard-phrase-ktk" class="text-xl font-bold"></p><p id="flashcard-trivia-ktk" class="text-gray-300"></p></div></div></div><div id="flashcard-controls-ktk" class="mt-6 relative"><input type="text" id="flashcard-input-ktk" class="flashcard-input text-center w-full sm:w-1-2 mx-auto p-4 rounded-lg text-2xl uppercase tracking-widest focus:outline-none" placeholder="Digite o Romaji"><p id="flashcard-feedback-ktk" class="text-red-500 font-bold mt-2 h-6"></p><button id="flashcard-check-ktk" class="btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Verificar</button><button id="flashcard-next-ktk" class="hidden btn-primary font-bold py-3 px-8 rounded-lg w-full sm:w-1-2 mx-auto mt-2 text-lg">Próximo</button></div></div>
             </section>
             
             <!-- Seção Guia de Kanji -->
             <section id="kanji" class="tab-content hidden flex flex-col">
                 <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                 <div class="card rounded-lg p-6 sm:p-8 mb-6"><h2 class="text-2xl font-semibold mb-4 text-center text-pink-400">Desvendando os Kanji</h2><p class="text-center mb-6 text-gray-300 max-w-3xl mx-auto">Kanji são ideogramas que representam ideias. Aprender a "ler" esses desenhos é um passo gigante para a fluência. Cada um deles possui duas leituras, um segredo que vamos desvendar agora.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"><div><h3 class="text-xl font-bold text-white mb-2">On'yomi (音読み) - A Leitura "Chinesa"</h3><p class="text-gray-300">É a pronúncia que imita o som original do chinês. Geralmente é usada quando vários kanji se juntam para formar uma nova palavra, como peças de um quebra-cabeça. Pense nela como as raízes "importadas" do idioma.</p></div><div><h3 class="text-xl font-bold text-white mb-2">Kun'yomi (訓読み) - A Leitura "Japonesa"</h3><p class="text-gray-300">É a pronúncia da palavra que já existia em japonês antes da chegada do kanji. Geralmente é usada quando o kanji aparece sozinho ou com terminações em Hiragana. É a leitura "nativa" do caractere.</p></div></div><div class="mt-6 border-t border-gray-700 pt-6"><h3 class="text-xl font-bold text-white mb-2 text-center">O que é um Mnemônico?</h3><p class="text-gray-300 text-center">É uma técnica de memorização! A IA vai criar uma historinha ou uma imagem mental criativa para te ajudar a nunca mais esquecer o formato e o significado de um kanji. Clique no botão "✨ Criar Mnemônico" em qualquer card para testar!</p></div></div>
+                 <div class="card rounded-lg p-6 sm:p-8 mb-6"><h2 class="text-2xl font-semibold mb-4 text-center text-purple-400">Desvendando os Kanji</h2><p class="text-center mb-6 text-gray-300 max-w-3xl mx-auto">Kanji são ideogramas que representam ideias. Aprender a "ler" esses desenhos é um passo gigante para a fluência. Cada um deles possui duas leituras, um segredo que vamos desvendar agora.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"><div><h3 class="text-xl font-bold text-white mb-2">On'yomi (音読み) - A Leitura "Chinesa"</h3><p class="text-gray-300">É a pronúncia que imita o som original do chinês. Geralmente é usada quando vários kanji se juntam para formar uma nova palavra, como peças de um quebra-cabeça. Pense nela como as raízes "importadas" do idioma.</p></div><div><h3 class="text-xl font-bold text-white mb-2">Kun'yomi (訓読み) - A Leitura "Japonesa"</h3><p class="text-gray-300">É a pronúncia da palavra que já existia em japonês antes da chegada do kanji. Geralmente é usada quando o kanji aparece sozinho ou com terminações em Hiragana. É a leitura "nativa" do caractere.</p></div></div><div class="mt-6 border-t border-gray-700 pt-6"><h3 class="text-xl font-bold text-white mb-2 text-center">O que é um Mnemônico?</h3><p class="text-gray-300 text-center">É uma técnica de memorização! A IA vai criar uma historinha ou uma imagem mental criativa para te ajudar a nunca mais esquecer o formato e o significado de um kanji. Clique no botão "✨ Criar Mnemônico" em qualquer card para testar!</p></div></div>
                 <h3 class="text-xl font-semibold mb-6 text-center text-white">Os 50 Kanji Mais Usados</h3>
                 <div id="kanji-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <!-- O JavaScript irá popular esta área. -->
@@ -464,24 +236,24 @@
             <section id="quiz" class="tab-content hidden flex flex-col">
                 <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
                 <div id="quiz-container" class="card rounded-lg p-6 sm:p-8 max-w-2xl mx-auto w-full">
-                    <div id="quiz-start"><h2 class="text-2xl font-semibold mb-4 text-center text-pink-400">Quiz dos Animes!</h2><p class="text-center mb-6 text-gray-300">Acha que conhece o japonês dos animes? Teste seu conhecimento otaku e aprenda se divertindo!</p><button id="start-quiz-btn" class="btn-primary font-bold py-3 px-8 rounded-lg w-full text-lg">Começar Desafio!</button></div>
-                    <div id="quiz-game" class="hidden"><div class="flex justify-between items-center mb-4"><h2 class="text-xl font-semibold text-pink-400">Pergunta <span id="question-number"></span></h2><p class="text-lg font-bold">Pontos: <span id="score">0</span></p></div><img id="quiz-image" src="" alt="Cena de Anime" class="rounded-lg mb-4 w-full h-40 sm:h-48 object-cover"><p id="question-text" class="text-xl sm:text-2xl mb-6 min-h-[6rem]"></p><div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div><button id="next-question-btn" class="hidden btn-primary font-bold py-3 px-8 rounded-lg w-full mt-8 text-lg">Próxima Pergunta</button></div>
-                    <div id="quiz-end" class="hidden text-center"><h2 class="text-2xl font-semibold mb-4 text-pink-400">Desafio Concluído!</h2><p class="text-xl mb-2">Sua pontuação final foi:</p><p id="final-score" class="text-4xl sm:text-5xl font-bold text-white my-4"></p><p id="feedback-message" class="text-lg mb-6"></p><button id="restart-quiz-btn" class="btn-primary font-bold py-3 px-8 rounded-lg w-full text-lg">Jogar Novamente</button></div>
+                    <div id="quiz-start"><h2 class="text-2xl font-semibold mb-4 text-center text-purple-400">Quiz dos Animes!</h2><p class="text-center mb-6 text-gray-300">Acha que conhece o japonês dos animes? Teste seu conhecimento otaku e aprenda se divertindo!</p><button id="start-quiz-btn" class="btn-primary font-bold py-3 px-8 rounded-lg w-full text-lg">Começar Desafio!</button></div>
+                    <div id="quiz-game" class="hidden"><div class="flex justify-between items-center mb-4"><h2 class="text-xl font-semibold text-purple-400">Pergunta <span id="question-number"></span></h2><p class="text-lg font-bold">Pontos: <span id="score">0</span></p></div><img id="quiz-image" src="" alt="Cena de Anime" class="rounded-lg mb-4 w-full h-40 sm:h-48 object-cover"><p id="question-text" class="text-xl sm:text-2xl mb-6 min-h-[6rem]"></p><div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div><button id="next-question-btn" class="hidden btn-primary font-bold py-3 px-8 rounded-lg w-full mt-8 text-lg">Próxima Pergunta</button></div>
+                    <div id="quiz-end" class="hidden text-center"><h2 class="text-2xl font-semibold mb-4 text-purple-400">Desafio Concluído!</h2><p class="text-xl mb-2">Sua pontuação final foi:</p><p id="final-score" class="text-4xl sm:text-5xl font-bold text-white my-4"></p><p id="feedback-message" class="text-lg mb-6"></p><button id="restart-quiz-btn" class="btn-primary font-bold py-3 px-8 rounded-lg w-full text-lg">Jogar Novamente</button></div>
                 </div>
             </section>
             
             <!-- Seção Sensei IA -->
             <section id="sensei" class="tab-content hidden flex flex-col">
                  <button class="btn-back btn-primary font-bold py-2 px-4 rounded-lg mb-6 self-start">&lt; Voltar ao Roteiro</button>
-                <div class="card rounded-lg p-4 sm:p-6 max-w-3xl mx-auto w-full"><h2 class="text-2xl font-semibold mb-4 text-center text-pink-400">✨ Converse com o Taka-Sensei IA</h2><div id="chat-window" class="chat-window p-4 rounded-lg mb-4 space-y-4"><div class="flex justify-start"><div class="chat-bubble ai">Konnichiwa! Eu sou o Taka-Sensei. Pergunte-me qualquer coisa sobre japonês, desde gramática até "Qual anime devo ver para praticar imersão?". Como posso te ajudar a destravar o Nihongo hoje?</div></div></div><div class="flex space-x-2"><input type="text" id="chat-input" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Digite sua pergunta..."><button id="chat-send-btn" class="btn-primary font-bold py-2 px-6 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button></div></div>
+                <div class="card rounded-lg p-4 sm:p-6 max-w-3xl mx-auto w-full"><h2 class="text-2xl font-semibold mb-4 text-center text-purple-400">✨ Converse com o Taka-Sensei IA</h2><div id="chat-window" class="chat-window p-4 rounded-lg mb-4 space-y-4"><div class="flex justify-start"><div class="chat-bubble ai">Konnichiwa! Eu sou o Taka-Sensei. Pergunte-me qualquer coisa sobre japonês, desde gramática até "Qual anime devo ver para praticar imersão?". Como posso te ajudar a destravar o Nihongo hoje?</div></div></div><div class="flex space-x-2"><input type="text" id="chat-input" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Digite sua pergunta..."><button id="chat-send-btn" class="btn-primary font-bold py-2 px-6 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button></div></div>
             </section>
             
         </main>
     </div>
 
-    <!-- SENSEI: AQUI ESTÁ A REFERÊNCIA DO JAVASCRIPT -->
-    <!-- O "./" é crucial para o GitHub Pages encontrar o arquivo -->
+    <!-- SENSEI: O "./" é crucial para o GitHub Pages encontrar o arquivo -->
+    <!-- SENSEI: SCRIPT AGORA É 'type="module"' PARA SUPORTAR IMPORTS DO FIREBASE (SE A SEGURANÇA ESTIVER LIGADA) -->
+    <!-- SENSEI: Removido o type="module" pois o script.js não importa mais nada -->
     <script src="./script.js" defer></script>
 </body>
->>>>>>> 11ac14b (commit de correção)
 </html>
