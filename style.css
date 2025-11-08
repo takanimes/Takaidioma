@@ -1,40 +1,40 @@
-/* SENSEI: Aqui está a nossa nova paleta "Nōkō" (Densa/Dark) para conforto visual. */
+/* SENSEI: Paleta atualizada para Preto Total (#000) e Roxo (#8B5CF6) */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #121212; /* Fundo preto/cinza-chumbo, mais confortável */
-    color: #e0e0e0; /* Texto principal um pouco mais suave */
+    background-color: #000000; /* PRETO TOTAL */
+    color: #e0e0e0;
 }
 .nav-link, .nav-link-mobile {
     transition: all 0.3s ease;
     cursor: pointer;
     border-bottom: 2px solid transparent;
     padding: 8px 0;
-    color: #b0b0b0; /* Links da navegação mais sutis */
+    color: #b0b0b0;
 }
 .nav-link.active, .nav-link-mobile.active {
-    color: #f9258a; /* Cor da marca Takanimes, agora com mais destaque */
-    border-bottom-color: #f9258a;
+    color: #8B5CF6; /* ROXO */
+    border-bottom-color: #8B5CF6; /* ROXO */
 }
 .nav-link:hover, .nav-link-mobile:hover {
-    color: #f9258a;
+    color: #8B5CF6; /* ROXO */
 }
-/* SENSEI: Cards com mais contraste e menos distração azul */
+/* SENSEI: Cards com fundo #111 (contraste sutil com #000) */
 .card {
-    background-color: #1e1e1e; /* Fundo do card ligeiramente mais claro */
-    border: 1px solid #2a2a2a; /* Borda sutil */
+    background-color: #111; /* Preto suave */
+    border: 1px solid #2a2a2a;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
 }
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(249, 37, 138, 0.2);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2); /* Sombra ROXA */
 }
 .card-number {
     position: absolute;
     top: 0.75rem;
     left: 0.75rem;
-    background-color: rgba(249, 37, 138, 0.2);
-    color: #f9258a;
+    background-color: rgba(139, 92, 246, 0.2); /* Fundo ROXO */
+    color: #8B5CF6; /* ROXO */
     border-radius: 9999px;
     width: 2rem;
     height: 2rem;
@@ -45,35 +45,34 @@ body {
     font-size: 0.875rem;
 }
 .btn-primary {
-    background-color: #f9258a;
+    background-color: #8B5CF6; /* ROXO */
     color: #ffffff;
     transition: background-color 0.3s ease;
     font-weight: 600;
 }
 .btn-primary:hover {
-    background-color: #e02178;
+    background-color: #7C3AED; /* ROXO mais escuro */
 }
-/* SENSEI: Removi o .btn-premium, pois não estamos mais vendendo o VIP aqui. */
 .btn-gemini {
-    background: linear-gradient(90deg, #f9258a, #ff7e5f);
+    /* SENSEI: Novo gradiente ROXO */
+    background: linear-gradient(90deg, #8B5CF6, #a78bfa);
     color: white;
     transition: all 0.3s ease;
 }
 .btn-gemini:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(249, 37, 138, 0.4);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4); /* Sombra ROXA */
 }
-/* SENSEI: Atualizando os inputs e opções para a nova paleta dark */
 .quiz-option, .flashcard-input {
-    background-color: #181818; /* Mais escuro que o card */
+    background-color: #000; /* Fundo preto */
     border: 1px solid #2a2a2a;
     transition: all 0.2s ease;
     cursor: pointer;
     color: #e0e0e0;
 }
 .quiz-option:hover, .flashcard-input:focus {
-    border-color: #f9258a;
-    color: #f9258a;
+    border-color: #8B5CF6; /* ROXO */
+    color: #8B5CF6; /* ROXO */
     outline: none;
 }
 .quiz-option.correct, .flashcard-input.correct {
@@ -90,11 +89,11 @@ body {
     pointer-events: none;
 }
 /* SENSEI: Estilos do Chat IA atualizados */
-.chat-window { height: 60vh; overflow-y: auto; background-color: #181818; }
+.chat-window { height: 60vh; overflow-y: auto; background-color: #000; } /* Fundo preto */
 .chat-bubble { max-width: 80%; padding: 10px 15px; border-radius: 20px; word-wrap: break-word; }
-.chat-bubble.user { background-color: #f9258a; color: white; border-bottom-right-radius: 5px; }
-.chat-bubble.ai { background-color: #2a2a2a; border: 1px solid #3a3a3a; color: #e0e0e0; border-bottom-left-radius: 5px; }
-.typing-indicator span { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #f9258a; animation: bounce 1.3s infinite; }
+.chat-bubble.user { background-color: #8B5CF6; color: white; border-bottom-right-radius: 5px; } /* ROXO */
+.chat-bubble.ai { background-color: #111; border: 1px solid #2a2a2a; color: #e0e0e0; border-bottom-left-radius: 5px; }
+.typing-indicator span { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #8B5CF6; animation: bounce 1.3s infinite; } /* ROXO */
 .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
 .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
 @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-10px); } }
@@ -109,18 +108,29 @@ body {
     cursor: pointer;
 }
 .kana-table td:hover {
-    background-color: #f9258a;
+    background-color: #8B5CF6; /* ROXO */
     color: white;
 }
-/* SENSEI: Overrides para elementos do Tailwind que usavam cores antigas */
-[class*="bg-gray-800/50"] { background-color: rgba(30, 30, 30, 0.7) !important; }
+/* SENSEI: Overrides de cores (atualizados para preto) */
+[class*="bg-gray-800/50"] { background-color: rgba(17, 17, 17, 0.7) !important; } /* #111 */
 .text-gray-300 { color: #b0b0b0; }
 .text-gray-400 { color: #888888; }
 .text-white { color: #ffffff; }
 .border-gray-700 { border-color: #2a2a2a; }
 .border-gray-600 { border-color: #3a3a3a; }
-.bg-gray-800\/50 { background-color: #1e1e1e; }
-.bg-gray-900 { background-color: #181818; }
+.bg-gray-800\/50 { background-color: #111; }
+.bg-gray-900 { background-color: #111; } /* Atualizado de cinza para preto suave */
+
+/* SENSEI: Destaques ROXOS (Substituindo o Rosa) */
+.text-pink-400 { color: #a78bfa !important; } /* Roxo claro */
+.text-pink-500 { color: #8B5CF6 !important; } /* Roxo */
+.border-pink-500 { border-color: #8B5CF6 !important; } /* ROXO */
+.hover\:text-pink-500:hover { color: #8B5CF6 !important; }
+.hover\:bg-pink-500:hover { background-color: #8B5CF6 !important; }
+.hover\:text-pink-400:hover { color: #a78bfa !important; }
+.focus\:ring-pink-500:focus { --tw-ring-color: #8B5CF6 !important; }
+.after\:bg-pink-400::after { background-color: #a78bfa !important; }
+
 
 /* SENSEI: Animação de "shake" para feedback de erro */
 @keyframes shake { 
